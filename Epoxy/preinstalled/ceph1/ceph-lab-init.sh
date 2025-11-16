@@ -6,8 +6,7 @@ set -x
 
 # Install Ceph packages
 sudo apt -y install cephadm ceph-common
-# Verify cephadm
-cephadm version
+
 # Bootstrap Ceph cluster
 sudo cephadm bootstrap --mon-ip 10.20.20.31 --initial-dashboard-user admin --initial-dashboard-password openstack
 
