@@ -3,6 +3,8 @@
 # Epoxy/preinstalled/controller1/prep-system.sh
 set -euo pipefail
 
+set -x
+
 cat | sudo tee /etc/netplan/01-netcfg.yaml >/dev/null <<'YAML'
 network:
   version: 2
