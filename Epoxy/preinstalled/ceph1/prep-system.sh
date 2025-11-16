@@ -1,7 +1,11 @@
 #!/bin/bash
 
 # Epoxy/preinstalled/ceph1/prep-system.sh
-set -euo pipefail
+set -e
+set -x
+
+# Convenience: passwordless sudo for openstack user
+echo 'openstack ALL=(ALL) NOPASSWD:ALL' | sudo tee /etc/sudoers.d/90-openstack
 
 cat <<'YAML' | sudo tee /etc/netplan/01-netcfg.yaml >/dev/null 
 network:
@@ -25,8 +29,6 @@ sudo systemctl restart chrony
 # Disable swap (Kolla prechecks require it)
 sudo swapoff -a
 sudo sed -ri '/\sswap\s/ s/^/#/' /etc/fstab
-# Convenience: passwordless sudo for openstack user
-echo 'openstack ALL=(ALL) NOPASSWD:ALL' | sudo tee /etc/sudoers.d/90-openstack
 
 # Make sure management hostnames resolve everywhere
 echo '10.0.0.11 controller1
