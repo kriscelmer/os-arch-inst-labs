@@ -61,7 +61,7 @@ ssh openstack@10.0.0.22 'echo "ssh openstack@10.0.0.22 works!"' # confirm you wa
 ssh openstack@ceph1 'echo "ssh openstack@ceph1 works!"'
 ssh openstack@10.0.0.31 'echo "ssh openstack@10.0.0.31 works!"' # confirm you want to connect, if asked
 
-echo << 'EOF'
+cat << 'EOF'
 *******************************************************************************
 *                                                                             *
 * Power off the VM. Create a snapshot named 'System installed and configured' *

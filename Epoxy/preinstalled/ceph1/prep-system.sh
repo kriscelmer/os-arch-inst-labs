@@ -39,7 +39,7 @@ echo '10.0.0.11 controller1
 echo "Waiting for controller1 to install SSH public key."
 read -p "Hit Enter when installed..." GO
 
-echo << 'EOF'
+cat << 'EOF'
 *******************************************************************************
 *                                                                             *
 * Power off the VM. Create a snapshot named 'System installed and configured' *
