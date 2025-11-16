@@ -3,7 +3,7 @@
 # Epoxy/preinstalled/compute1/prep-system.sh
 set -euo pipefail
 
-cat | sudo tee /etc/netplan/01-netcfg.yaml >/dev/null <<'YAML'
+cat <<'YAML' | sudo tee /etc/netplan/01-netcfg.yaml >/dev/null
 network:
   version: 2
   renderer: networkd

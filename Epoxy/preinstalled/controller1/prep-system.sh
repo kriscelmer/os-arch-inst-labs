@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Epoxy/preinstalled/controller1/prep-system.sh
-set -euo pipefail
+# set -euo pipefail
 
 set -x
 
-cat | sudo tee /etc/netplan/01-netcfg.yaml >/dev/null <<'YAML'
+cat <<'YAML' | sudo tee /etc/netplan/01-netcfg.yaml >/dev/null 
 network:
   version: 2
   renderer: networkd
