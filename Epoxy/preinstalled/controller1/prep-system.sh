@@ -65,8 +65,8 @@ cat << 'EOF'
 *******************************************************************************
 *                                                                             *
 * Power off the VM. Create a snapshot named 'System installed and configured' *
-* Power back on, wait for other VMs to complete `prep-system.sh` and snapshot *
-* and run `bash kolla-bootstrap.sh`.                                          *
+* Power back on, wait for other VMs to complete 'prep-system.sh' and snapshot *
+* then run 'bash kolla-bootstrap.sh'.                                         *
 *                                                                             *
 *******************************************************************************
 EOF

@@ -46,7 +46,7 @@ cat << EOF
 *******************************************************************************
 *                                                                             *
 * Power off the VM. Create a snapshot named 'Ceph installed and configured'   *
-* Power back on, continue deployment on `controller`                          *
+* Power back on, continue deployment on 'controller'                          *
 *                                                                             *
 *******************************************************************************
 EOF
