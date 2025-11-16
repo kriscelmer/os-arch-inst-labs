@@ -37,7 +37,7 @@ echo '10.0.0.11 controller1
 10.0.0.31 ceph1' | sudo tee -a /etc/hosts
 
 echo "Waiting for controller1 to install SSH public key."
-read "Hit Enter when installed..." > /dev/null
+read -p "Hit Enter when installed..." GO
 
 echo << 'EOF'
 *******************************************************************************

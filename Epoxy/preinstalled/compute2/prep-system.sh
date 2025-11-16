@@ -13,9 +13,9 @@ network:
   renderer: networkd
   ethernets:
     ens32: {dhcp4: true}        # NAT egress
-    ens33: {addresses: [10.0.0.21/24], nameservers: {addresses: [10.0.0.1]}, routes: []}
-    ens34: {addresses: [10.10.10.21/24]}
-    ens35: {addresses: [10.20.20.21/24]}
+    ens33: {addresses: [10.0.0.22/24], nameservers: {addresses: [10.0.0.1]}, routes: []}
+    ens34: {addresses: [10.10.10.22/24]}
+    ens35: {addresses: [10.20.20.22/24]}
     ens36: {dhcp4: false, dhcp6: false, optional: true}  # provider, no IP
 YAML
 sudo chmod 600 /etc/netplan/01-netcfg.yaml
@@ -39,7 +39,7 @@ echo '10.0.0.11 controller1
 10.0.0.31 ceph1' | sudo tee -a /etc/hosts
 
 echo "Waiting for controller1 to install SSH public key."
-read "Hit Enter when installed..." > /dev/null
+read -p "Hit Enter when installed..." GO
 
 echo << 'EOF'
 *******************************************************************************

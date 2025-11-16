@@ -41,7 +41,7 @@ echo '10.0.0.11 controller1
 10.0.0.31 ceph1' | sudo tee -a /etc/hosts
 
 echo "Waiting for ceph1, compute1 and compute2 to become ready to distribute SSH public key."
-read "Hit Enter when all 3 are ready..." > /dev/null
+read -p "Hit Enter when all 3 are ready..." > /dev/null GO
 
 # Generate SSH key pair and copy public key to all nodes
 ssh-keygen -t ed25519 -N '' -f ~/.ssh/id_ed25519
