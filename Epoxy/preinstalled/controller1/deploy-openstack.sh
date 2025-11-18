@@ -23,8 +23,8 @@ storage_interface: "{{ network_interface }}"
 dns_interface: "{{ network_interface }}"
 neutron_external_interface: "ens36"
 
-kolla_internal_vip_address: "10.0.0.10"
-kolla_external_vip_address: "10.0.0.10"
+kolla_internal_vip_address: "10.0.0.11"
+kolla_external_vip_address: "10.0.0.11"
 
 # Disable the “all core services at once” bundle
 enable_openstack_core: "no"
