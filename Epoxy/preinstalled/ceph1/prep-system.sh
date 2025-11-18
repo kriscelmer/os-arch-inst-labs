@@ -1,6 +1,10 @@
 #!/bin/bash
 
 # Epoxy/preinstalled/ceph1/prep-system.sh
+# Execute the lines below in a freshly installed VM:
+# wget -O prep-system.sh "https://raw.githubusercontent.com/kriscelmer/os-arch-inst-labs/refs/heads/main/Epoxy/preinstalled/ceph1/prep-system.sh"
+# bash prep-system.sh
+
 set -e
 set -x
 
