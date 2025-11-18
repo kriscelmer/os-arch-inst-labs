@@ -111,13 +111,8 @@ ceph_nova_pool_name: "vms"
 ceph_version: "squid"   # or pacific/quincy/etc
 EOF
 
-# Enable Heat
-cat << 'EOF' > /etc/kolla/globals.d/40-heat.yml
-enable_heat: "yes"
-EOF
-
 # Enable dashboards
-cat << 'EOF' > /etc/kolla/globals.d/50-dashboards.yml
+cat << 'EOF' > /etc/kolla/globals.d/40-dashboards.yml
 enable_horizon: "yes"          # already enabled, but fine
 enable_skyline: "yes"
 
