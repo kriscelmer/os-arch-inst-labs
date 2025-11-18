@@ -47,9 +47,7 @@ enable_rabbitmq_cluster: "no"
 enable_keystone: "yes"
 
 # Disable services for now
-enable_heat: "no"
 enable_designate: "no"
-enable_skyline: "no"
 EOF
 
 # Create globals for Glance with file backend and Horizon
@@ -59,8 +57,6 @@ enable_glance: "yes"
 # Start with simple file backend; we’ll switch to Ceph later
 glance_backend_file: "yes"
 glance_backend_ceph: "no"
-
-enable_horizon: "yes"
 EOF
 
 # Create globals for Neutron (OVN) and Nova
@@ -113,6 +109,20 @@ ceph_nova_pool_name: "vms"
 
 # Align client packages with your Ceph cluster version
 ceph_version: "squid"   # or pacific/quincy/etc
+EOF
+
+# Enable Heat
+cat << 'EOF' > /etc/kolla/globals.d/40-heat.yml
+enable_heat: "yes"
+EOF
+
+# Enable dashboards
+cat << 'EOF' > /etc/kolla/globals.d/50-dashboards.yml
+enable_horizon: "yes"          # already enabled, but fine
+enable_skyline: "yes"
+
+# Optional: disable SSO in Skyline to keep it simple
+skyline_enable_sso: "no"
 EOF
 
 # Copy Ceph config files and keyrings
@@ -183,3 +193,14 @@ openstack server create demo-vm --flavor m1.tiny --image cirros --key-name demo-
 
 FIP=$(openstack floating ip create public -f value -c floating_ip_address)
 openstack server add floating ip demo-vm $FIP
+
+openstack volume type create ceph-volume-type
+openstack volume type set ceph-volume-type --property volume_backend_name=rbd1
+
+openstack volume create --size 1 --type ceph-volume-type --image cirros boot-vol
+openstack server create vm-from-volume --flavor m1.tiny --volume boot-vol --network demo-net --key-name demo-key --security-group ssh-icmp
+
+cat << 'EOF'
+export OS_CLIENT_CONFIG_FILE=/etc/kolla/clouds.yaml
+export OS_CLOUD=kolla-admin
+EOF
