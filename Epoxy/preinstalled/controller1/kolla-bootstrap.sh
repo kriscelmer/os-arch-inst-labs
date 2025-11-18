@@ -39,7 +39,7 @@ cp -r ~/openstack-venv/share/kolla-ansible/etc_examples/kolla/* /etc/kolla
 cp ~/openstack-venv/share/kolla-ansible/ansible/inventory/multinode ./inventory
 
 # Setup inventory
-inventory_file="~/inventory"
+inventory_file="./inventory"
 for section in control network storage monitoring; do
     for item in $(crudini --get $inventory_file $section); do
         crudini --del $inventory_file $section $item
