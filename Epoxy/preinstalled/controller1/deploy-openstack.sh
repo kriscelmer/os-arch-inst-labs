@@ -62,7 +62,7 @@ EOF
 kolla-ansible bootstrap-servers -i $INVENTORY_FILE
 kolla-ansible prechecks -i $INVENTORY_FILE
 
-kolla-ansible gencofig -i $INVENTORY_FILE
+kolla-ansible genconfig -i $INVENTORY_FILE
 kolla-ansible validate-config -i $INVENTORY_FILE
 
 kolla-ansible deploy -i $INVENTORY_FILE
