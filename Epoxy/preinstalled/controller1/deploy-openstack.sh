@@ -2,8 +2,8 @@
 
 # Epoxy/preinstalled/controller1/deploy-openstack.sh
 # Execute the lines below in a freshly installed VM:
-# wget -O kolla-bootstrap.sh "https://raw.githubusercontent.com/kriscelmer/os-arch-inst-labs/refs/heads/main/Epoxy/preinstalled/controller1/kolla-bootstrap.sh"
-# bash kolla-bootstrap.sh
+# wget -O deploy-openstack.sh "https://raw.githubusercontent.com/kriscelmer/os-arch-inst-labs/refs/heads/main/Epoxy/preinstalled/controller1/deploy-openstack.sh"
+# bash deploy-openstack.sh
 
 set -e
 set -x
