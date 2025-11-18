@@ -116,11 +116,11 @@ ceph_version: "squid"   # or pacific/quincy/etc
 EOF
 
 # Copy Ceph config files and keyrings
-sudo mkdir -p /etc/kolla/config/glance
-sudo mkdir -p /etc/kolla/config/cinder
-sudo mkdir -p /etc/kolla/config/cinder/cinder-volume
-sudo mkdir -p /etc/kolla/config/cinder/cinder-backup
-sudo mkdir -p /etc/kolla/config/nova
+mkdir -p /etc/kolla/config/glance
+mkdir -p /etc/kolla/config/cinder
+mkdir -p /etc/kolla/config/cinder/cinder-volume
+mkdir -p /etc/kolla/config/cinder/cinder-backup
+mkdir -p /etc/kolla/config/nova
 
 cp ~/ceph-artifacts/ceph.conf /etc/kolla/config/glance/ceph.conf
 cp ~/ceph-artifacts/ceph.conf /etc/kolla/config/cinder/ceph.conf
