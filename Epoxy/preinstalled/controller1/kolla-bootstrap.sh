@@ -20,7 +20,7 @@ sed -i -E 's/^[[:space:]]+//' ~/ceph-artifacts/ceph.client.nova.keyring
 
 # Install required packages
 sudo apt update
-sudo apt -y install git python3-dev libffi-dev gcc libssl-dev libdbus-glib-1-dev python3-venv
+sudo apt -y install git python3-dev libffi-dev gcc libssl-dev libdbus-glib-1-dev python3-venv crudini
 # (Recommended) dedicated venv on the deployment host
 python3 -m venv ~/openstack-venv && source ~/openstack-venv/bin/activate
 echo "source ~/openstack-venv/bin/activate" >> ~/.bashrc
@@ -37,6 +37,20 @@ sudo mkdir -p /etc/kolla
 sudo chown "$USER:$USER" /etc/kolla
 cp -r ~/openstack-venv/share/kolla-ansible/etc_examples/kolla/* /etc/kolla
 cp ~/openstack-venv/share/kolla-ansible/ansible/inventory/multinode ./inventory
+
+# Setup inventory
+inventory_file="~/inventory"
+for section in control network storage monitoring; do
+    for item in $(crudini --get $inventory_file $section); do
+        crudini --del $inventory_file $section $item
+    done
+    crudini --set $inventory_file $section controller1
+done
+for item in $(crudini --get $inventory_file compute); do
+    crudini --del $inventory_file compute $item
+done
+crudini --set $inventory_file compute compute1
+crudini --set $inventory_file compute compute2
 
 # Generate passwords
 kolla-genpwd
