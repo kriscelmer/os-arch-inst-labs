@@ -130,6 +130,7 @@ cp ~/ceph-artifacts/ceph.client.cinder.keyring /etc/kolla/config/cinder/cinder-v
 cp ~/ceph-artifacts/ceph.client.cinder.keyring /etc/kolla/config/cinder/cinder-backup/ceph.client.cinder.keyring
 cp ~/ceph-artifacts/ceph.client.cinder-backup.keyring /etc/kolla/config/cinder/cinder-backup/ceph.client.cinder-backup.keyring
 cp ~/ceph-artifacts/ceph.client.nova.keyring /etc/kolla/config/nova/ceph.client.nova.keyring
+cp ~/ceph-artifacts/ceph.client.cinder.keyring /etc/kolla/config/nova/ceph.client.cinder.keyring
 
 kolla-ansible bootstrap-servers -i $INVENTORY_FILE
 kolla-ansible prechecks -i $INVENTORY_FILE
