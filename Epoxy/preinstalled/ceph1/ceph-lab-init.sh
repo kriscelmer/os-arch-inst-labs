@@ -1,6 +1,10 @@
 #!/bin/bash
 
 # Epoxy/preinstalled/controller1/ceph-lab-init.sh
+# Execute the lines below in a freshly installed VM:
+# wget -O ceph-lab-init.sh "https://raw.githubusercontent.com/kriscelmer/os-arch-inst-labs/refs/heads/main/Epoxy/preinstalled/ceph1/ceph-lab-init.sh"
+# bash ceph-lab-init.sh
+
 set -e
 set -x
 
