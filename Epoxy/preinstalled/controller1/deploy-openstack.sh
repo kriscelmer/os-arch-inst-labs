@@ -16,12 +16,12 @@ cat << 'EOF' > /etc/kolla/globals.yml
 kolla_base_distro: "ubuntu"
 openstack_release: "2025.1"
 
-network_interface: "ens3"
+network_interface: "ens33"
 api_interface: "{{ network_interface }}"
 tunnel_interface: "{{ network_interface }}"
 storage_interface: "{{ network_interface }}"
 dns_interface: "{{ network_interface }}"
-neutron_external_interface: "ens4"
+neutron_external_interface: "ens36"
 
 kolla_internal_vip_address: "10.0.0.10"
 kolla_external_vip_address: "10.0.0.10"
