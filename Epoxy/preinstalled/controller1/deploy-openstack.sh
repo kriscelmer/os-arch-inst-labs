@@ -128,7 +128,7 @@ cp ~/ceph-artifacts/ceph.conf /etc/kolla/config/nova/ceph.conf
 cp ~/ceph-artifacts/ceph.client.glance.keyring /etc/kolla/config/glance/ceph.client.glance.keyring
 cp ~/ceph-artifacts/ceph.client.cinder.keyring /etc/kolla/config/cinder/cinder-volume/ceph.client.cinder.keyring
 cp ~/ceph-artifacts/ceph.client.cinder.keyring /etc/kolla/config/cinder/cinder-backup/ceph.client.cinder.keyring
-cp ~/ceph-artifactsceph.client.cinder-backup.keyring /etc/kolla/config/cinder/cinder-backup/ceph.client.cinder-backup.keyring
+cp ~/ceph-artifacts/ceph.client.cinder-backup.keyring /etc/kolla/config/cinder/cinder-backup/ceph.client.cinder-backup.keyring
 cp ~/ceph-artifacts/ceph.client.nova.keyring /etc/kolla/config/nova/ceph.client.nova.keyring
 
 kolla-ansible bootstrap-servers -i $INVENTORY_FILE
