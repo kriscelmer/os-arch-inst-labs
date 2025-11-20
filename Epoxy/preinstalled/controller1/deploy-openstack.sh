@@ -116,6 +116,32 @@ cat << 'EOF' > /etc/kolla/globals.d/50-heat.yml
 enable_heat: "yes"
 EOF
 
+# Enable Designate and local Bind9
+cat << 'EOF' > /etc/kolla/globals.d/60-designate.yml
+#####################
+# Designate + Neutron DNS
+#####################
+
+# Turn on DNS integration inside Neutron
+neutron_dns_integration: "yes"
+# Internal/fallback DNS domain for Neutron
+neutron_dns_domain: "demo.lab."   # must not be openstacklocal and must end with '.'
+
+# Enable Designate service
+enable_designate: "yes"
+
+# Use Kolla's Bind9 backend
+designate_backend: "bind9"
+
+# Nameserver records Designate will advertise for your zones
+designate_ns_record:
+  - "ns1.demo.lab"
+
+# Optional: have Bind forward everything else to public resolvers
+# This just makes Bind usable as a general recursive resolver too
+designate_forwarders_addresses: "8.8.8.8; 1.1.1.1"
+EOF
+
 # Enable dashboards
 cat << 'EOF' > /etc/kolla/globals.d/90-dashboards.yml
 enable_horizon: "yes"          # already enabled, but fine
