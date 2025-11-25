@@ -204,7 +204,7 @@ openstack security group rule create --ethertype IPv4 --protocol icmp --remote-i
 openstack security group rule create --ethertype IPv4 --protocol tcp --dst-port 22 --remote-ip 0.0.0.0/0 ssh-icmp
 
 # Flavor to accomodate cirros Instances
-openstack flavor create --ram 512 --disk 2 --vcpus 1 m1.tiny
+openstack flavor create --ram 512 --disk 1 --vcpus 1 m1.tiny
 openstack keypair create demo-key > demo-key.pem
 chmod 600 demo-key.pem
 
