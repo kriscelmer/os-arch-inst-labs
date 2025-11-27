@@ -111,13 +111,8 @@ ceph_cinder_backup_pool_name: "backups"
 ceph_version: "squid"   # or pacific/quincy/etc
 EOF
 
-# Enable Heat
-cat << 'EOF' > /etc/kolla/globals.d/50-heat.yml
-enable_heat: "yes"
-EOF
-
 # Enable Designate and local Bind9
-cat << 'EOF' > /etc/kolla/globals.d/60-designate.yml
+cat << 'EOF' > /etc/kolla/globals.d/50-designate.yml
 #####################
 # Designate + Neutron DNS
 #####################
